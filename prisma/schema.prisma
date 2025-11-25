@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String     @id @default(cuid())
+  businessName  String
+  officeAddress String
+  postCode      String
+  email         String     @unique
+  password      String
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  properties    Property[]
+
+  @@map("users")
+}
+
+model Property {
+  id                String   @id @default(cuid())
+  userId            String
+  title             String
+  description       String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  accessProperty    String
+  address           String
+  bathrooms         Int?
+  bedrooms          Int?
+  city              String
+  country           String
+  dimension         Float?
+  floors            Int?
+  garage            Boolean  @default(false)
+  garden            Boolean  @default(false)
+  imageUrl          String?
+  listingType       String
+  parking           Boolean  @default(false)
+  postCode          String
+  propertyReference String?
+  propertyType      String
+  propertyValue     Float?
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId], map: "properties_userId_fkey")
+  @@map("properties")
+}
