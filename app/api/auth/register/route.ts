@@ -6,7 +6,7 @@ import bcrypt from 'bcryptjs';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    console.log("🚀 ~ POST ~ body:", body)
+    
     
     // Validate required fields
     const { businessName, officeAddress, postCode, email, password, confirmPassword } = body;
@@ -77,7 +77,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// Optional: Add other HTTP methods
+
 export async function GET() {
   return NextResponse.json(
     { error: 'Method not allowed' },

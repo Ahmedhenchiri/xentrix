@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { useSession } from "next-auth/react";
+
 import { IoSearchOutline } from "react-icons/io5";
 import { IoSettingsOutline } from "react-icons/io5";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { MdExpandMore } from "react-icons/md";
 export default function Topbar() {
-  const { data: session } = useSession();
+
 
 
   return (

@@ -16,10 +16,11 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Only image files are allowed' }, { status: 400 })
     }
 
-    // Validate file size (2MB)
-    if (file.size > 2 * 1024 * 1024) {
-      return NextResponse.json({ error: 'File size must be less than 2MB' }, { status: 400 })
-    }
+   // Validate file size (20MB)
+if (file.size > 20 * 1024 * 1024) {
+  return NextResponse.json({ error: 'File size must be less than 20MB' }, { status: 400 })
+}
+
 
     const bytes = await file.arrayBuffer()
     const buffer = Buffer.from(bytes)

@@ -1,0 +1,47 @@
+export interface Property {
+  id: string;
+  title: string;
+  description?: string;
+  imageUrl?: string;
+  address?: string;
+  city?: string;
+  country?: string;
+  postCode?: string;
+  propertyReference?: string;
+  propertyValue?: number;
+  propertyType?: string;
+  accessProperty?: string;
+  listingType?: string;
+  dimension?: number;
+  bedrooms?: number;
+  bathrooms?: number;
+  floors?: number;
+  parking: boolean;
+  garden: boolean;
+  garage: boolean;
+  createdAt: string;
+  updatedAt: string;
+  userId: string;
+}
+export type PropertyFormData = {
+  title: string;
+  description?: string;
+  imageUrl?: string;
+  address?: string;
+  city?: string;
+  country?: string;
+  postCode?: string;
+  propertyReference?: string;
+  propertyValue?: number;
+  propertyType?: string;
+  accessProperty?: string;
+  listingType?: string;
+  dimension?: number;
+  bedrooms?: number;
+  bathrooms?: number;
+  floors?: number;
+  parking: boolean;
+  garden: boolean;
+  garage: boolean;
+  userId: string;
+};
